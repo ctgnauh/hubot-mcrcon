@@ -123,6 +123,8 @@ configure = (robot) ->
         mc <server> ops                     all       lists chat user ops
         mc <server> <remote command>        op|owner  executes remote command
       """
+      if robot.adapterName is "slack"
+        msg = "```" + msg + "```"
       res.send (if header then header + "\n" else "") + msg
 
     servers: (res, servers) ->
